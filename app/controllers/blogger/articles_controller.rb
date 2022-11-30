@@ -20,6 +20,7 @@ module Blogger
 
 
     def edit
+      @article = Article.find(params[:id])
     end
 
 
@@ -35,8 +36,10 @@ module Blogger
 
 
     def update
+      @article = Article.find(params[:id])
+
       if @article.update(article_params)
-        redirect_to @article, notice: "Article was successfully updated."
+        redirect_to @article
       else
         render :edit, status: :unprocessable_entity
       end
@@ -44,6 +47,7 @@ module Blogger
 
     # DELETE /articles/1
     def destroy
+      @article = Article.find(params[:id])
       @article.destroy
       redirect_to articles_url, notice: "Article was successfully destroyed."
     end
@@ -55,7 +59,7 @@ module Blogger
 
 
       def article_params
-        params.require(:article).permit(:title, :text, :author_name )
+        params.require(:article).permit(:title, :text, :author_name)
       end
   end
 end

@@ -1,4 +1,4 @@
 module Blogger
-  class ApplicationController < :: ApplicationController
+  class ApplicationController < ::ApplicationController
   end
 end
