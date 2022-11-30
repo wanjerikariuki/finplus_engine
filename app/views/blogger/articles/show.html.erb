@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+<% content_for :content do %>
+  <div class="jumbotron">
+    <div class="container">
+<%= render @article %>
+<h3>Comments</h3>
+<%= render @article.comments %>
+<%= render "blogger/comments/form" %>
+
+
+
+<div>
+  <%= link_to "Edit this article", edit_article_path(@article) %> |
+  <%= link_to "Back to articles", articles_path %>
+
+  <%= button_to "Destroy this article", @article, method: :delete %>
+
+</div>
+
+    </div>
+  </div>
+<% end %>
+
+<%= render template: "layouts/blogger/application" %>

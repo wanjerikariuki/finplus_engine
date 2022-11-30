@@ -1,0 +1,30 @@
+<% content_for :content do %>
+  <div class="jumbotron">
+    <div class="container">
+
+<%= form_with(model: @article) do |form| %>
+
+  <div class="field">
+    <%= form.label :author_name %><br>
+    <%= form.text_field :author_name %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+    </div>
+  </div>
+<% end %>
+<%= render template: "layouts/blogger/application" %>
